@@ -140,6 +140,10 @@ GEM
       apotomo (>= 1.1.4)
       rails (~> 3.0)
       rspec-rails (~> 2.6)
+    rspec-cells (0.1.2)
+      cells (~> 3.4)
+      rails (~> 3.0)
+      rspec-rails (~> 2.2)
     rspec-core (2.8.0)
     rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
@@ -190,6 +194,7 @@ PLATFORMS
 DEPENDENCIES
   apotomo
   capybara
+  cells
   coffee-rails (~> 3.2.1)
   cucumber-rails
   haml-rails
@@ -199,6 +204,7 @@ DEPENDENCIES
   pry
   rails (= 3.2.1)
   rspec-apotomo
+  rspec-cells
   rspec-rails
   sass-rails (~> 3.2.3)
   sqlite3

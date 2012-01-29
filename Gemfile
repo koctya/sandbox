@@ -24,6 +24,7 @@ end
 
 gem 'jquery-rails'
 gem 'apotomo'
+gem 'cells'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,6 +44,7 @@ gem 'apotomo'
 group :development, :test do
   gem 'pry'
   gem 'cucumber-rails'
+  gem 'rspec-cells'
   gem 'rspec-rails'
   gem 'rspec-apotomo'
   gem 'capybara'
