@@ -9,8 +9,14 @@ class TwitterWidget < Apotomo::Widget
   def process_tweet(evt)
     Tweet.new(:text => evt[:text]).save
     
-    @tweets = Tweet.find(:all) # this is wet!
-    replace :view => :display
+    replace :state => :display
   end
 
+  def list(tweets)
+    render :locals => {:tweets => tweets}
+  end
+  
+  def form
+    render
+  end
 end
