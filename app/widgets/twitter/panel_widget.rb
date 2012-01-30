@@ -1,4 +1,4 @@
-class TwitterWidget < Apotomo::Widget
+class Twitter::PanelWidget < Apotomo::Widget
   responds_to_event :submit, :with => :process_tweet
 
   def display
