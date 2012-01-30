@@ -10,6 +10,7 @@ class Twitter::FormWidget < Apotomo::Widget
     @tweet = Tweet.new
       
     if @tweet.update_attributes(evt[:tweet])
+      trigger :newTweet
       replace :state => :display
     else
       replace :view => :display

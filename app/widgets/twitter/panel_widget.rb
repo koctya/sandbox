@@ -1,5 +1,6 @@
 class Twitter::PanelWidget < Apotomo::Widget
   # responds_to_event :submit, :with => :process_tweet
+  responds_to_event :newTweet, :with => :redraw_list
 
   has_widgets do
     self << widget("twitter/form", :tweet_form)
@@ -19,6 +20,10 @@ class Twitter::PanelWidget < Apotomo::Widget
 
   def list(tweets)
     render :locals => {:tweets => tweets}
+  end
+  
+  def redraw_list(evt)
+    replace "##{widget_id} ul", {:state => :list}, Tweet.find(:all)
   end
   
   # def form
