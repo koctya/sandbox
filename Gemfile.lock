@@ -216,4 +216,4 @@ DEPENDENCIES
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)
-  zurb-foundation
+  zurb-foundation (~> 2.1.5)
