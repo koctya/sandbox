@@ -25,6 +25,7 @@ end
 gem 'jquery-rails'
 gem 'apotomo'
 gem 'cells'
+gem 'em-websocket'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

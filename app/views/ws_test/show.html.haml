@@ -1,0 +1,16 @@
+:javascript
+  $(document).ready(function(){
+      function debug(str){ $("#debug").append("<p>"+str+"</p>"); };
+
+      ws = new WebSocket("ws://localhost:8080");
+      ws.onmessage = function(evt) { $("#msg").append("<p>"+evt.data+"</p>"); };
+      ws.onclose = function() { debug("socket closed"); };
+      ws.onopen = function() {
+        debug("connected...");
+        ws.send("hello server");
+      };
+    });
+
+%h1 WsTest#show
+#debug
+#msg

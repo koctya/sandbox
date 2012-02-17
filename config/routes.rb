@@ -1,4 +1,6 @@
 Sandbox::Application.routes.draw do
+  get "ws_test/show"
+
   get "dashboard/index"
 
   # The priority is based upon order of creation:
