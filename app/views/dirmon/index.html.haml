@@ -1,0 +1,15 @@
+- content_for :page_title do
+  DirMonitor
+
+.container
+  .row
+    .twelve.columns
+      .alert_panel.hide
+        .alert-box{:class => @severity}
+          = @alert_msg
+      %h1 Dirmon
+      
+      = render_widget :status, :show
+      - @groups.each do |group|
+        = render_widget group, :show
+      = render_widget :logview, :show

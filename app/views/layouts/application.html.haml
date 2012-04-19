@@ -11,6 +11,18 @@
     / Included JS Files
     = javascript_include_tag "application"
     = csrf_meta_tags
+    /[if lt IE 9]
+      = javascript_include_tag "html5"
   %body
     .container
-      = yield
+      .row
+        %dl.nice.tabs
+          %dd
+            %a{:href => "/"} Home &nbsp;
+          %dd
+            %a{:href => "/dirmon/show"} Dirmon &nbsp;
+          %dd
+            %a{:href => "/"} Dashboard &nbsp;
+            
+      .row
+        = yield

@@ -1,32 +1,46 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2'
+  gem 'coffee-rails', '~> 3.2'
+  gem 'coffee-filter'
+  gem 'uglifier', '>= 1.2'
   gem 'haml-rails'
-  gem 'zurb-foundation', '~> 2.1.5'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer'
-
-  gem 'uglifier', '>= 1.0.3'
+  gem 'haml-coderay'
+  gem 'zurb-foundation', '>= 2.2'
 end
 
 gem 'jquery-rails'
-gem 'apotomo'
-gem 'cells'
+gem 'jquery-ui-rails'
+gem 'jquery-ui-themes'
+gem 'apotomo', '>= 1.2'
+gem 'cells', '>= 3.8'
+gem 'execjs'
 gem 'em-websocket'
 
+platforms :ruby do
+  gem 'therubyracer', '>= 0.9'
+  gem 'libv8'
+  gem 'sqlite3'
+  #to use debugger
+  gem 'debugger'
+end
+
+platforms :jruby do
+  gem 'activerecord-jdbcsqlite2-adapter'
+  gem 'jdbc-sqlite3'
+  gem 'jruby-openssl'
+  gem 'trinidad', '~> 1.3.2'
+  gem 'therubyrhino'
+end
+  
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -43,12 +57,32 @@ gem 'em-websocket'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development, :test do
-  gem 'pry'
-  gem 'cucumber-rails'
+  gem 'pry', '>= 0.9.8'
+  gem 'awesome_print'
   gem 'rspec-cells'
-  gem 'rspec-rails'
-  gem 'rspec-apotomo'
+  gem 'rspec-rails',  '~> 2.9.0'
+  gem 'rspec-apotomo', '~> 0.9.6'
+  gem 'warbler'
+  gem 'net-ssh'
+  gem 'net-scp'
+  gem 'guard-rails'
+  gem 'rails_best_practices'
+end
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'gherkin', '~> 2.9'
+  gem 'database_cleaner'
   gem 'capybara'
+  gem 'culerity'
+  gem 'launchy'
   gem 'jasmine'
   gem 'machinist'
+  gem 'guard-annotate'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-jasmine'
+  gem 'guard-rails_best_practices'
+  
+  gem 'simplecov', :require => false
 end

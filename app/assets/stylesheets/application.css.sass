@@ -9,5 +9,132 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require foundation
- *= require_tree .
+@import "foundation"
+@import "colors"
+@import "dirmon"
+
+@mixin rounded-corners($radius)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  
+li
+  padding-left: 14px
+  
+.navigation
+  @extend .nice
+  @extend .nav-bar
+  @include rounded-corders(10px)
+  margin-right: 10px
+  padding-right: 10px
+  font-family: "Times New Roman", Times, serif
+  font-weight: bold
+  font-size: 150%
+  
+.tip
+  @include rounded-corders(3px)
+  color: white
+  background: $almost_black
+  display: none  #hide by default
+  padding: 10px
+  position: absolute
+  max-width: 300px
+  z-index: 100000
+  
+.header
+  top: 0
+  position: fixed
+  color: darkblue
+  background-color: white
+  width: 100%
+  text-align: center
+  clear: both
+  z-index: 5
+  
+.footer
+  bottom: 0
+  position: fixed
+  color: darkblue
+  background-color: white
+  width: 100%
+  text-align: center
+  clear: both
+  z-index: 5
+  
+.ui-button-text-only .ui-button-text
+  padding: 0.1em 0.5em
+  
+.right
+  float: right
+  max-width: 120px
+  margin-right: 10px
+  
+.funky
+  font:
+    family: fantasy
+    size: 30em
+    weight: bold
+
+body
+  background-color: white
+  color: #333
+  font:
+    family: times-roman, times, serif
+    size: 13px
+  line-height: 18px
+  
+p, ol, ul, td
+  font:
+    family: times-roman, times, serif
+    size: 13px
+  line-height: 18px
+
+pre
+  font:
+    family: "Courier New", courier, sans-serif
+    size: 11px
+    weight: bold
+  padding: 10px
+  overflow-x: auto
+
+a
+  display: block
+  color: black
+  &:visited
+    color: gray
+  &:hover
+    color: white
+    background-color: black
+
+div
+  &.field, &.actions
+    margin-bottom: 10px
+
+#notice
+  color: green
+
+.field_with_errors
+  padding: 2px
+  background-color: red
+  display: table
+  
+#error_explanation
+  width: 450px
+  border: 2px solid red
+  padding: 7px
+  padding-bottom: 0
+  margin-bottom: 20px
+  background-color: #f0f0f0
+  h2
+    text-align: left
+    font:
+      size: 12px
+      weight: bold
+    padding: 5px 5px 5px 15px
+    margin: -7px
+      bottom: 0px
+    background-color: darkred
+    color: white
+  ul li
+    font-size: 12px
+    list-style: square

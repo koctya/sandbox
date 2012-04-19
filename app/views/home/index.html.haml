@@ -1,0 +1,35 @@
+- content for :page_title do
+  Sandbox Home
+  
+.container
+  .row
+    .eight.columns.centered
+      %h2 Hello Rails
+      %a.group_bar{:href => "#", "data-reveal-id" => "default_config"}
+        Show Default Config
+      %p
+        = form_tag({:action => :upload}, :multipart => true) do
+          = file_field_tag 'pref_file', :size => 50
+          = submit_tag "Upload"
+      .panel.hide
+        = link_to "The Blog", posts_path
+  #default_config.reveal-modal
+    -#:coderay
+    -#  #!yaml
+    -#    #{@default_config.to_s}
+    %h3 Default configuration
+    /= "#{@config_file}"
+    .container
+      = form_tag do
+        - @default_config.keys.each do |type|
+          %h4
+            = "#{type}:"
+          - a = @default_config[type]
+          %ul
+            - a.keys.each do |entry|
+              %li
+                = label_tag entry
+                = text_field_tag "#{entry}", "#{a[entry]}", :size => 40
+        = submit_tag "Save"
+        = submit_tag "Cancel"
+    %a.close-reveal-modal x
