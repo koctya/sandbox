@@ -1,0 +1,18 @@
+= widget_div do
+  -#%h1
+  -#  GroupbarWidget
+  .groupbar{:id => "#{widget_id}_group_bar"}
+    = "#{widget_id} Directory"
+    .right= @count
+  .panel.hide{:id => "#{widget_id}_group"}
+    - @dirs.each do |dir_name|
+      - name = File.basename(dir_name)
+      - wid = "#{widget_id}_#{name}"
+      = render_widget wid, :show
+      
+:coffeescript
+  window.refreshTimer = ->
+    false
+  jQuery ->
+    $("##{widget_id}_group_bar").click ->
+      toggleDiv("#{widget_id}_group")

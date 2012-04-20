@@ -1,5 +1,10 @@
 = widget_div do
-  %h1
-    StatusWidget#show
-  %p
-    Find me in app/widgets/status/show.html.haml
+  .status_bar
+    Status
+  #status_panel.panel.hide
+    = render_widget :viewer, :show
+    
+:coffeescript
+  jQuery ->
+    $(".status_bar").click ->
+      toggleDiv('status_panel)

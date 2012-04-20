@@ -1,0 +1,12 @@
+= widget_div do
+  %pre= tail
+
+:coffeescript
+  window.refreshTimer = ->
+    setTimeout (->
+      $.post "#{url_for_event(:refresh)}"
+    ), 5000
+  jQuery ->
+    parent = "#{@parent.widget_id}"
+    if $("##{widget_id}").is(':visible')
+      window.refreshTimer()

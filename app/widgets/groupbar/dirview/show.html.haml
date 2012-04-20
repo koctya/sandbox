@@ -1,0 +1,10 @@
+.groupbar{:id => "#{@wid}_dir_bar"}
+  = @dir
+  .right= @count
+.panel.hide{:id => "#{@wid}_list"}
+  = render_widget @cwid, :show
+  
+:coffeescript
+  jQuery ->
+    $("##{@wid}_dir_bar").click ->
+      toggleDiv("#{@wid}_list")

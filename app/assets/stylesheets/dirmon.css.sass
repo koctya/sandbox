@@ -1,3 +1,60 @@
 // Place all the styles related to the Dirmon controller here.
 // They will automatically be included in application.css.
 // You can use Sass here: http://sass-lang.com/
+
+@import "functions"
+
+div.groupbar
+  @extend .nice
+  @extend .blue
+  @extend .button
+  @extend .full-width
+  @include rounded-corders(5px)
+  font-size: 12px
+  padding: 5px 10px
+  
+div.logbar
+  @extend .groupbar
+  background-color: green
+  &:hover, &:focus
+    background-color: darken(green, 5%)
+  
+div.status_bar
+  @extend .groupbar
+  background-color: purple
+  &:hover, &:focus
+    background-color: darken(purple, 5%)
+
+.right
+  float: right
+  margin-right: 10px
+  
+div.listing
+  height: 330px
+  overflow-y: auto
+  font:
+    family: "Courier New", Courier, monospace
+    weight: bold
+
+div.alert_panel
+  @extend panel
+
+div.tail_panel
+  @extend .panel
+  max-height: auto
+  overflow-x: auto
+  padding: 6px 10px
+
+#status_panel
+  height: 330px
+  overflow-y: auto
+  background: purple
+  color: white
+
+.wide
+  width: 80%
+
+.error_box
+  @include rounded-corders(5px)
+  border: 3px solid red
+  

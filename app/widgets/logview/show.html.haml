@@ -1,0 +1,14 @@
+= widget_div do
+  .logbar
+    = @logfile
+  #log-dir-group.panel.hide
+    .tail_panel
+      = render_widget :tail, :show
+
+:coffeescript
+  window.refreshTimer = ->
+    false
+  jQuery ->
+    $(".logbar").click ->
+      toggleDiv('log-dir-group')
+      window.refreshTimer()

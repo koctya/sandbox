@@ -1,0 +1,17 @@
+= widget_div do
+  %div{:id => "#{@wid}_radio"}
+    = form_tag :url => url_for_event(:list), :method => "get", :remote => true do
+      = radio_button_tag(@wid, "list", !@summary)
+      = label_tag("#{@wid}_list", "list")
+      = radio_button_tag(@wid, "summary", @summary)
+      = label_tag("#{@wid}_summary", "summary")
+  .error_box.hide{:id => "#{@wid}_err"}
+  = render :state => :list
+
+:coffeescript
+  jQuery ->
+    $("##{@wid}_radio").buttonset()
+    $("##{@wid}_radio").change (event) ->
+      summary = $('input[name=#{@wid}]:checked').val()
+      $.cookie("#{@wid}_summary", summary)
+      window.dirStyle("#{url_for_event(:list)}", summary, "#{@wid}")
