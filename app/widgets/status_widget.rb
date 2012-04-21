@@ -9,7 +9,7 @@ class StatusWidget < Apotomo::Widget
   
   def show
     uri = options[:uri]
-    user = options[:user]    
+    user = options[:user]
     render
   end
 

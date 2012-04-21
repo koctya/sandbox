@@ -1,4 +1,4 @@
-- content for :page_title do
+- content_for :page_title do
   Sandbox Home
   
 .container
@@ -12,7 +12,8 @@
           = file_field_tag 'pref_file', :size => 50
           = submit_tag "Upload"
       .panel.hide
-        = link_to "The Blog", posts_path
+        = link_to "The Blog", dashboard_index_path
+        
   #default_config.reveal-modal
     -#:coderay
     -#  #!yaml

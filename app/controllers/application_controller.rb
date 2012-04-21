@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   def load_yaml(filename)
     yaml = ""
-    if filename && File.exists? filename
+    if filename && File.exists?( filename)
       yaml = YAML.load_file filename
     end
     yaml

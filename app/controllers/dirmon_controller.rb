@@ -7,7 +7,7 @@ class DirmonController < ApplicationController
     logfile = Rails.root.join 'log', 'development.log'
     srv_uri = 'druby://localhost:6789'
     user = 'kal'
-    groups = %w[. .. config]
+    groups = %w[. .. ~]
     groups.map! {|dir| File.expand_path dir}
     #binding.pry
     root << widget( :status, :uri => srv_uri, :user => user)
@@ -16,16 +16,16 @@ class DirmonController < ApplicationController
       dirs = Dir.entries(group).reject! {|f| f[0] == "."}
       dirs = dirs.select {|d| File.directory?(File.join group, d)}
       dirs.map! {|f| File.join(group, f)}
-      rood << widget(:groupbar, name, :dirs => dirs)
+      root << widget(:groupbar, name, :dirs => dirs)
     end
-    rood << widget(:logview, :logfile => logfile)    
+    root << widget(:logview, :logfile => logfile)    
   end
   
-  def show
+  def index
     @severity = ""
     @alert_msg = ""
-    groups = %w[. .. config]
-    groups.map! {|dir| File.basename File.expand_path(dir)}
+    @groups = %w[. .. ~]
+    @groups.map! {|dir| File.basename File.expand_path(dir)}
     
     respond_to do |format|
       format.html

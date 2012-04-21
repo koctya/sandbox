@@ -24,6 +24,7 @@ gem 'apotomo', '>= 1.2'
 gem 'cells', '>= 3.8'
 gem 'execjs'
 gem 'em-websocket'
+gem 'passenger'
 
 platforms :ruby do
   gem 'therubyracer', '>= 0.9'

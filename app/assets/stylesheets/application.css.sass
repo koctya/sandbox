@@ -8,6 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require jquery.ui.all
+ *= require jquery-ui/smoothness
  *= require_self
 @import "foundation"
 @import "colors"
@@ -21,7 +23,7 @@ li
 .navigation
   @extend .nice
   @extend .nav-bar
-  @include rounded-corders(10px)
+  @include rounded-corners(10px)
   margin-right: 10px
   padding-right: 10px
   font-family: "Times New Roman", Times, serif
@@ -29,10 +31,11 @@ li
   font-size: 150%
   
 .tip
-  @include rounded-corders(3px)
+  @include rounded-corners(3px)
   color: white
   background: $almost_black
-  display: none  #hide by default
+  // hide by default
+  display: none  
   padding: 10px
   position: absolute
   max-width: 300px
@@ -91,7 +94,6 @@ pre
     family: "Courier New", courier, sans-serif
     size: 11px
     weight: bold
-  padding: 10px
   overflow-x: auto
 
 a
